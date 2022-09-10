@@ -90,6 +90,7 @@ form .txt_field{
   left: 5px;
   transform: translateY(-50%);
 
+  transition: 0.5s;
 }
 
 .txt_field span::before{
@@ -104,6 +105,11 @@ form .txt_field{
 
 }
 
+input:focus ~ label {
+  top: -5px;
+  color: var(--clr-yellow);
+}
+
 #button {
   border: none;
   width: 100%;
@@ -115,4 +121,132 @@ form .txt_field{
   position: relative;
   top: 0;
   background: var(--clr-yellow);
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
+#button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  top: -5px;
+  background-color: var(--clr-green);
+}
+
+
+
+
+
+.form {
+  position: relative;
+  overflow: hidden;
+}
+
+.lines:nth-child(1){
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+  background: var(--clr-yellow);
+
+  animation: animation1 2s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animation1 {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.lines:nth-child(2){
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 3px;
+  height: 100%;
+  background: var(--clr-yellow);
+
+  animation: animation2 2s linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animation2 {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.lines:nth-child(3){
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: 3px;
+  background: var(--clr-yellow);
+
+  animation: animation3 2s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animation3 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.lines:nth-child(4){
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 3px;
+  height: 100%;
+  background: var(--clr-yellow);
+
+  animation: animation4 2s linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animation4 {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+
+.form {
+  animation: slide-up 1s ease-out;
+}
+
+article {
+  animation: slide-up 1.5s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+  }
 }
